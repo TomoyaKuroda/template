@@ -1,7 +1,8 @@
 <IfModule mod_rewrite.c>
 	RewriteEngine On
 
-  RewriteCond %{SCRIPT_FILENAME} -d [OR]
-  RewriteCond %{SCRIPT_FILENAME} -f
-  RewriteRule "(^|/)\." - [F]
+	# Deny Access to Hidden Files and Directories
+	RewriteCond %{SCRIPT_FILENAME} -d [OR]
+	RewriteCond %{SCRIPT_FILENAME} -f
+	RewriteRule "(^|/)\." - [F]
 </IfModule>
