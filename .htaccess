@@ -5,4 +5,7 @@
 	RewriteCond %{SCRIPT_FILENAME} -d [OR]
 	RewriteCond %{SCRIPT_FILENAME} -f
 	RewriteRule "(^|/)\." - [F]
+
+	# play video files in Safari https://clickshepherd.com/solved-elegant-themes-divi-and-cloudflare-mp4-media-error-formats-not-supported-or-sources-not-found
+	SetEnvIfNoCase Request_URI .(?:mp4)$ no-gzip dont-vary
 </IfModule>
